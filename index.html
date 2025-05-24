@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Weather Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="antialiased">
+    <div class="weather-container bg-white rounded-2xl shadow-xl p-6 md:p-8 w-full max-w-md lg:max-w-xl xl:max-w-2xl flex flex-col items-center space-y-6 transform transition-all duration-300 hover:shadow-2xl hover:scale-[1.01]">
+        <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4 text-center">Weather Dashboard</h1>
+
+        <div class="search-area flex flex-col sm:flex-row w-full space-y-3 sm:space-y-0 sm:space-x-3">
+            <input type="text" id="city-input" placeholder="Enter city name..."
+                   class="flex-grow p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-700 transition-all duration-200">
+            <button id="search-button"
+                    class="text-white p-3 rounded-lg font-semibold focus:outline-none focus:ring-2 focus:ring-offset-2 transition-all duration-200 shadow-md hover:shadow-lg">
+                <img src="assets/search.png" alt="Search icon" class="w-5 h-5 inline-block"> Search
+            </button>
+        </div>
+
+        <div id="loading-indicator" class="hidden text-blue-600 font-medium">Fetching weather data...</div>
+
+        <div id="error-message" class="hidden text-red-600 font-medium text-center"></div>
+
+        <div id="weather-display" class="w-full hidden">
+            <div class="current-weather bg-blue-50 p-6 rounded-xl shadow-md flex flex-col items-center space-y-4 mb-8">
+                <h2 id="location-name" class="text-2xl md:text-3xl font-bold text-gray-800"></h2>
+                <p id="date" class="text-gray-600 text-sm"></p>
+
+                <div class="main-info flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-8">
+                    <img id="weather-icon" src="" alt="Weather icon" class="w-24 h-24 md:w-32 md:h-32">
+                    <span id="temperature" class="text-5xl md:text-6xl font-extrabold"></span>
+                </div>
+                <p id="description" class="text-lg font-medium capitalize"></p>
+
+                <div class="details grid grid-cols-1 sm:grid-cols-3 gap-4 w-full text-center mt-4">
+                    <p class="text-gray-700 text-base">Humidity: <span id="humidity" class="font-semibold"></span></p>
+                    <p class="text-gray-700 text-base">Wind Speed: <span id="wind-speed" class="font-semibold"></span></p>
+                    <p class="text-gray-700 text-base">Feels Like: <span id="feels-like" class="font-semibold"></span></p>
+                </div>
+            </div>
+
+            <div class="forecast-section w-full">
+                <h3 class="text-xl md:text-2xl font-bold text-gray-800 mb-4 text-center">5-Day Forecast</h3>
+                <div id="forecast-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
+                    </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,315 @@
+/* Custom styles to ensure Inter font is applied and for general layout */
+body {
+    font-family: 'Inter', sans-serif;
+    /* Updated background gradient for a pink and green look */
+    background: linear-gradient(to bottom right, #EC4899, #10B981); /* Tailwind's from-pink-500 to-green-500 */
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem; /* Tailwind's p-4 */
+}
+/* Hide the default scrollbar but allow scrolling */
+body::-webkit-scrollbar {
+    display: none;
+}
+body {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+/* Custom styles for enhanced button appearance */
+.search-area button {
+    /* Updated gradient for buttons to match pink/green theme */
+    background-image: linear-gradient(to right, #EC4899, #10B981); /* Pink to Green gradient */
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    display: flex; /* Enable flexbox for icon and text alignment */
+    align-items: center; /* Vertically center items */
+    justify-content: center; /* Horizontally center items */
+    gap: 8px; /* Space between icon and text */
+}
+.search-area button:hover {
+    background-image: linear-gradient(to right, #10B981, #EC4899); /* Reverse gradient on hover */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Enhanced styling for the main weather container */
+.weather-container {
+    background-color: rgba(255, 255, 255, 0.95); /* Slightly transparent white */
+    backdrop-filter: blur(10px); /* Frosted glass effect */
+    /* Updated border color to subtly match the green in the background */
+    border: 1px solid rgba(16, 185, 129, 0.5); /* A semi-transparent green border */
+    border-radius: 1rem; /* Tailwind's rounded-2xl */
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05); /* Tailwind's shadow-xl */
+    padding: 1.5rem; /* Tailwind's p-6 */
+    width: 100%; /* Tailwind's w-full */
+    max-width: 28rem; /* Tailwind's max-w-md */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem; /* Tailwind's space-y-6 */
+    transform: translateY(0);
+    transition: all 0.3s ease-in-out; /* Tailwind's transform transition-all duration-300 */
+}
+.weather-container:hover {
+    box-shadow: 0 20px 25px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.1); /* Tailwind's hover:shadow-2xl */
+    transform: scale(1.01); /* Tailwind's hover:scale-[1.01] */
+}
+
+/* Adjustments for larger screens for weather-container */
+@media (min-width: 768px) { /* md breakpoint */
+    .weather-container {
+        padding: 2rem; /* Tailwind's md:p-8 */
+        max-width: 36rem; /* Tailwind's lg:max-w-xl */
+    }
+}
+@media (min-width: 1024px) { /* lg breakpoint */
+    .weather-container {
+        max-width: 42rem; /* Tailwind's xl:max-w-2xl */
+    }
+}
+
+
+h1 {
+    font-size: 2.25rem; /* Tailwind's text-3xl */
+    line-height: 2.5rem; /* Tailwind's leading-9 */
+    font-weight: 700; /* Tailwind's font-bold */
+    color: #374151; /* Tailwind's text-gray-800 */
+    margin-bottom: 1rem; /* Tailwind's mb-4 */
+    text-align: center;
+}
+@media (min-width: 768px) { /* md breakpoint */
+    h1 {
+        font-size: 2.5rem; /* Tailwind's md:text-4xl */
+        line-height: 1; /* Adjust if needed, Tailwind doesn't have direct md:leading */
+    }
+}
+
+
+.search-area {
+    display: flex;
+    flex-direction: column; /* Tailwind's flex-col */
+    width: 100%; /* Tailwind's w-full */
+    gap: 0.75rem; /* Tailwind's space-y-3 */
+}
+@media (min-width: 640px) { /* sm breakpoint */
+    .search-area {
+        flex-direction: row; /* Tailwind's sm:flex-row */
+        gap: 0.75rem; /* Tailwind's sm:space-x-3 */
+        margin-bottom: 0; /* Tailwind's sm:space-y-0 */
+    }
+}
+
+.search-area input[type="text"] {
+    flex-grow: 1; /* Tailwind's flex-grow */
+    padding: 0.75rem; /* Tailwind's p-3 */
+    border: 1px solid #D1D5DB; /* Tailwind's border-gray-300 */
+    border-radius: 0.5rem; /* Tailwind's rounded-lg */
+    outline: none;
+    font-size: 1rem; /* Tailwind's text-gray-700 */
+    color: #374151;
+    transition: all 0.2s ease; /* Tailwind's transition-all duration-200 */
+}
+.search-area input[type="text"]:focus {
+    outline: none;
+    border-color: #3B82F6; /* Tailwind's focus:ring-blue-500 */
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5); /* Tailwind's focus:ring-2 focus:ring-blue-500 */
+}
+
+.search-area button img {
+    width: 1.25rem; /* Tailwind's w-5 */
+    height: 1.25rem; /* Tailwind's h-5 */
+    display: inline-block; /* Tailwind's inline-block */
+}
+
+#loading-indicator {
+    color: #3B82F6; /* Tailwind's text-blue-600 */
+    font-weight: 500; /* Tailwind's font-medium */
+}
+
+#error-message {
+    color: #DC2626; /* Tailwind's text-red-600 */
+    font-weight: 500; /* Tailwind's font-medium */
+    text-align: center;
+}
+
+#weather-display {
+    width: 100%; /* Tailwind's w-full */
+}
+
+.current-weather {
+    background-color: #EFF6FF; /* Tailwind's bg-blue-50 */
+    padding: 1.5rem; /* Tailwind's p-6 */
+    border-radius: 0.75rem; /* Tailwind's rounded-xl */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06); /* Tailwind's shadow-md */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem; /* Tailwind's space-y-4 */
+    margin-bottom: 2rem; /* Tailwind's mb-8 */
+}
+
+.current-weather h2 {
+    font-size: 1.5rem; /* Tailwind's text-2xl */
+    line-height: 2rem; /* Tailwind's leading-8 */
+    font-weight: 700; /* Tailwind's font-bold */
+    color: #374151; /* Tailwind's text-gray-800 */
+}
+@media (min-width: 768px) { /* md breakpoint */
+    .current-weather h2 {
+        font-size: 1.875rem; /* Tailwind's md:text-3xl */
+        line-height: 2.25rem; /* Tailwind's md:leading-9 */
+    }
+}
+
+.current-weather p {
+    color: #4B5563; /* Tailwind's text-gray-600 */
+    font-size: 0.875rem; /* Tailwind's text-sm */
+}
+
+.main-info {
+    display: flex;
+    flex-direction: column; /* Tailwind's flex-col */
+    align-items: center;
+    justify-content: center;
+    gap: 1rem; /* Tailwind's space-y-4 */
+}
+@media (min-width: 768px) { /* md breakpoint */
+    .main-info {
+        flex-direction: row; /* Tailwind's md:flex-row */
+        gap: 2rem; /* Tailwind's md:space-x-8 */
+        margin-bottom: 0; /* Tailwind's md:space-y-0 */
+    }
+}
+
+#weather-icon {
+    width: 6rem; /* Tailwind's w-24 */
+    height: 6rem; /* Tailwind's h-24 */
+}
+@media (min-width: 768px) { /* md breakpoint */
+    #weather-icon {
+        width: 8rem; /* Tailwind's md:w-32 */
+        height: 8rem; /* Tailwind's md:h-32 */
+    }
+}
+
+#temperature {
+    font-size: 3rem; /* Tailwind's text-5xl */
+    line-height: 1;
+    font-weight: 800; /* Tailwind's font-extrabold */
+}
+@media (min-width: 768px) { /* md breakpoint */
+    #temperature {
+        font-size: 3.75rem; /* Tailwind's md:text-6xl */
+    }
+}
+
+#description {
+    font-size: 1.125rem; /* Tailwind's text-lg */
+    line-height: 1.75rem; /* Tailwind's leading-7 */
+    font-weight: 500; /* Tailwind's font-medium */
+    text-transform: capitalize;
+}
+
+.details {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr)); /* Tailwind's grid-cols-1 */
+    gap: 1rem; /* Tailwind's gap-4 */
+    width: 100%; /* Tailwind's w-full */
+    text-align: center;
+    margin-top: 1rem; /* Tailwind's mt-4 */
+}
+@media (min-width: 640px) { /* sm breakpoint */
+    .details {
+        grid-template-columns: repeat(3, minmax(0, 1fr)); /* Tailwind's sm:grid-cols-3 */
+    }
+}
+
+.details p {
+    color: #374151; /* Tailwind's text-gray-700 */
+    font-size: 1rem; /* Tailwind's text-base */
+}
+.details span {
+    font-weight: 600; /* Tailwind's font-semibold */
+}
+
+.forecast-section {
+    width: 100%; /* Tailwind's w-full */
+}
+
+.forecast-section h3 {
+    font-size: 1.25rem; /* Tailwind's text-xl */
+    line-height: 1.75rem; /* Tailwind's leading-7 */
+    font-weight: 700; /* Tailwind's font-bold */
+    color: #374151; /* Tailwind's text-gray-800 */
+    margin-bottom: 1rem; /* Tailwind's mb-4 */
+    text-align: center;
+}
+@media (min-width: 768px) { /* md breakpoint */
+    .forecast-section h3 {
+        font-size: 1.5rem; /* Tailwind's md:text-2xl */
+        line-height: 2rem; /* Tailwind's md:leading-8 */
+    }
+}
+
+#forecast-container {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr)); /* Tailwind's grid-cols-1 */
+    gap: 1rem; /* Tailwind's gap-4 */
+}
+@media (min-width: 640px) { /* sm breakpoint */
+    #forecast-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr)); /* Tailwind's sm:grid-cols-2 */
+    }
+}
+@media (min-width: 1024px) { /* lg breakpoint */
+    #forecast-container {
+        grid-template-columns: repeat(3, minmax(0, 1fr)); /* Tailwind's lg:grid-cols-3 */
+    }
+}
+@media (min-width: 1280px) { /* xl breakpoint */
+    #forecast-container {
+        grid-template-columns: repeat(5, minmax(0, 1fr)); /* Tailwind's xl:grid-cols-5 */
+    }
+}
+
+.forecast-card {
+    padding: 1rem; /* Tailwind's p-4 */
+    border-radius: 0.5rem; /* Tailwind's rounded-lg */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06); /* Tailwind's shadow-sm */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.2s ease; /* Tailwind's transition-transform duration-200 */
+}
+.forecast-card:hover {
+    transform: scale(1.05); /* Tailwind's hover:scale-105 */
+}
+
+.forecast-card img {
+    width: 4rem; /* Tailwind's w-16 */
+    height: 4rem; /* Tailwind's h-16 */
+}
+
+.forecast-card p {
+    font-size: 0.875rem; /* Tailwind's text-sm */
+    font-weight: 600; /* Tailwind's font-semibold */
+}
+.forecast-card .font-bold {
+    font-size: 1.25rem; /* Tailwind's text-xl */
+    line-height: 1.75rem; /* Tailwind's leading-7 */
+    font-weight: 700; /* Tailwind's font-bold */
+}
+.forecast-card .text-xs {
+    font-size: 0.75rem; /* Tailwind's text-xs */
+    line-height: 1rem; /* Tailwind's leading-4 */
+}
+
+/* Specific styling for current-weather background */
+.current-weather {
+    background-color: rgba(239, 246, 255, 0.9); /* Slightly transparent blue-50 */
+}
+
