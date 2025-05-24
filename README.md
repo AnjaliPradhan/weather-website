@@ -1,4 +1,5 @@
 # weather-website
+# microIT : TASK-2
 # Dynamic Weather Dashboard
 This is a modern and interactive weather dashboard web application that displays current weather conditions and a 5-day forecast for any given city. It features a clean, responsive design with attractive color gradients and custom weather icons.
 
